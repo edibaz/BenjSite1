@@ -1,0 +1,90 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block container %}
+
+    <div class="col-md-8 col-lg-offset-2">
+
+        <div class="panel panel-info" data-collapsed="0">
+
+            <!-- panel head -->
+            <div class="panel-heading">
+                <div class="panel-title"><h2>Shown Event</h2></div>
+            </div>
+            <!-- panel body -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <h2>Edit Event: {{read_event.evTitle}}</h2>
+                        </div>
+
+                        <div class="panel-body">
+                            <form role="form" class="form-horizontal form-groups-bordered" method="POST" action="{{path('_admin_save_event', {'id':read_event.id})}}">
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Event Title</label>
+
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control input-lg" name="edit_event_title" value="{{read_event.evTitle}}" autocomplete="off"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="field-1" class="col-sm-2 control-label">Event Date</label>
+
+                                    <div class="col-sm-7">
+                                        <div class="date-and-time">
+                                            <input type="text" name="edit_event_date" class="form-control datepicker" data-format="D, dd MM yyyy" value="{{read_event.evDate}}">
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <a href="#"><i class="entypo-clock"></i></a>
+                                                </div><input type="text" name="edit_event_moment" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" value="{{read_event.evMoment}}" data-show-meridian="true" data-minute-step="5" data-second-step="5" />                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Event Place</label>
+
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control input-lg" name="edit_event_place" value="{{read_event.evPlace}}" autocomplete="off"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="field-ta" class="col-sm-2 control-label">Event Content</label>
+
+                                    <div class="col-sm-10">
+                                        <textarea class="form-control autogrow input-lg" name="edit_event_content" autocomplete="off">{{read_event.evContent}}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="col-sm-3">
+                                        <a type="button" href="{{path('_admin_manage_list_events')}}" class="btn btn-red btn-lg btn-icon icon-left">
+                                            <i class="entypo-cancel"></i>
+                                            Cancel
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-3 col-sm-offset-6">
+                                        <button type="submit" class="btn btn-success btn-lg btn-icon icon-left">
+                                            <i class="entypo-check"></i>
+                                            Save Changes
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "benjBundle:Admin:admin_art_informations.html.twig" %}
+
+{% block art_informations %}
+    <div class="panel panel-info" data-collapsed="0">
+
+        <!-- panel head -->
+        <div class="panel-heading">
+            <div class="panel-title"><h2>Shown Art</h2></div>
+        </div>
+
+        <!-- panel body -->
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- API Functions -->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th><h5>Function</h5></th>
+                                <th><h5>Values</h5></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <h4>Art Name</h4>
+                                </td>
+                                <td>
+                                    <pre><h3>{{art_affiche.artName | upper}}</h3></pre>                                         
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4>Art Category</h4>
+                                </td>
+                                <td>
+                                    <pre><h3>{{art_affiche.artCategory}}</h3></pre>                                         
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4>Art Year</h4>
+                                </td>
+                                <td>
+                                    <pre><h3>{{art_affiche.artYear}}</h3></pre>                                         
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4>Art Comment</h4>
+                                </td>
+                                <td>
+                                    <pre><h3>{{art_affiche.artComment}}</h3></pre>                                         
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4>Dimensions</h4>
+                                </td>
+                                <td>
+                                    <pre><h3>{{art_affiche.artDimensions}}</h3></pre>                                         
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-lg-3">
+                        <a type="button" href="{{path('_admin_manage_list_arts')}}" class="btn btn-success btn-lg btn-icon icon-left center-block"><i class="entypo-back"></i>Back to arts list</a>
+                    </div>
+                    <div class="col-lg-offset-10">
+                        <a type="button" href="{{path('_admin_modify_art', {'id':art_affiche.id})}}" class="btn btn-blue btn-lg btn-icon icon-left center-block col-lg-offset-3"><i class="entypo-pencil"></i>Edit</a>                         
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends "benjBundle:Admin:admin_art_informations.html.twig" %}
+
+{% block admin_art_button %}
+    <a type="button" href="{{path('_admin_delete_art', {'id':art_affiche.id})}}" class="btn btn-red btn-lg btn-icon icon-left center-block col-lg-offset-3"><i class="entypo-pencil"></i>Delete</a>
+{% endblock %}
+
+

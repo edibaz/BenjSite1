@@ -1,0 +1,460 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block menu_statistics %}class = "active"{% endblock %}
+{% block menu_new_art %}{% endblock %}
+{% block menu_list_arts %}{% endblock %}
+{% block menu_new_event %}{% endblock %}
+{% block menu_list_events %}{% endblock %}
+
+{% block container %}
+
+    <div >
+        <div class="col-md-3 navbar-nav">
+            <a href="#unread_message" data-toggle="tab">
+                <div class="tile-stats tile-red ">
+                    <div class="icon"><i class="entypo-mail"></i></div>
+                    <div class="num" data-start="0" data-end="{{unread_messages | length}}"  data-postfix="" data-duration="1500" data-delay="0">0</div>
+                    <h3>Unread Messages</h3>
+                </div>
+            </a>
+            <a href="#message" data-toggle="tab">
+                <div class="tile-stats tile-aqua ">
+                    <div class="icon"><i class="entypo-mail"></i></div>
+                    <div class="num" data-start="0" data-end="{{read_messages | length}}" data-postfix="" data-duration="1500" data-delay="0">0</div>
+                    <h3>All Messages</h3>
+                </div>
+            </a>
+            <a href="#unread_comment" data-toggle="tab">
+                <div class="tile-stats tile-orange">
+                    <div class="icon"><i class="entypo-paper-plane"></i></div>
+                    <div class="num" data-start="0" data-end="{{unread_advises | length}}" data-postfix="" data-duration="1500" data-delay="0">0</div>
+                    <h3>Unread Comments</h3>
+                </div>
+            </a>
+            <a href="#comment" data-toggle="tab">
+                <div class="tile-stats tile-green">
+                    <div class="icon"><i class="entypo-paper-plane"></i></div>
+                    <div class="num" data-start="0" data-end={{read_advises | length}} data-postfix="" data-duration="1500" data-delay="0">0</div>
+                    <h3>All Comments</h3>
+                </div>
+            </a>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane {% block mess_unread %}{% endblock %}" id="unread_message">
+                <div class="col-md-9">
+
+                    <div class="panel panel-danger" data-collapsed="0">
+
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h2>All Unread Messages</h2>
+                            </div>
+
+                            <div class="panel-options">
+                                <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                <a href="" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body col-md-12">
+
+                            <form role="form" class="form-horizontal form-groups-bordered">
+
+                                <table class="table table-bordered table-striped datatable" id="table-2">
+
+                                    <thead>
+                                        <tr>
+                                            <th><h5>ID</h5></th>
+                                            <th><h5>AUTHOR</h5></th>
+                                            <th><h5>SUBJECT</h5></th>
+                                            <th><h5>DATE</h5></th>
+                                            <th><h5>EMAIL</h5></th>
+                                            <th><h5>PHONE</h5></th>                                            
+                                            <th><h5>ACTION</h5></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% set n = 1 %}
+                                        {% set num = 1 %}
+
+                                        {% for messages in unread_messages %}
+                                            
+                                            <tr>
+                                                <td>{{num}}</td>
+                                                <td>{{messages.messAuthor}}</td>
+                                                <td>{{messages.messSubject}}</td>
+                                                <td>{{messages.messDate | date('d/m/Y')}}</td>
+                                                <td>{{messages.messEmail}}</td>
+                                                <td>{{messages.messPhone}}</td>
+                                                <td>
+                                                    <a class="btn btn-info btn-sm btn-icon icon-left" href="{{ path('_read_message', {'message_group':'unread' ,'id':messages.id, 'mail':'false'}) }}">
+                                                        <i class="entypo-eye"></i>
+                                                        Read it
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {% set n = num %}
+                                            {% set num = n+1 %}
+                                            
+                                        {% endfor %}
+                                    </tbody>
+
+                                </table>
+
+                            </form>
+
+                        </div>
+                        <script type="text/javascript">
+                            function showAjaxModal()
+                            {
+                                jQuery('#modal-7').modal('show', {backdrop: 'static'});
+
+                                jQuery.ajax({
+                                    url: "data/ajax-content.txt",
+                                    success: function (response)
+                                    {
+                                        jQuery('#modal-7 .modal-body').html(response);
+                                    }
+                                });
+                            }
+                        </script>
+
+                    </div>
+                    <div class="modal fade" id="modal-7">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <label for="field-1" class="control-label"></label>
+
+                                                <input type="text" class="form-control" id="field-1" placeholder="John">
+                                            </div>	
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <label for="field-2" class="control-label">Surname</label>
+
+                                                <input type="text" class="form-control" id="field-2" placeholder="Doe">
+                                            </div>	
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="form-group">
+                                                <label for="field-3" class="control-label">Address</label>
+
+                                                <input type="text" class="form-control" id="field-3" placeholder="Address">
+                                            </div>	
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label for="field-4" class="control-label">City</label>
+
+                                                <input type="text" class="form-control" id="field-4" placeholder="Boston">
+                                            </div>	
+
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label for="field-5" class="control-label">Country</label>
+
+                                                <input type="text" class="form-control" id="field-5" placeholder="United States">
+                                            </div>	
+
+                                        </div>
+
+                                        <div class="col-md-4">
+
+                                            <div class="form-group">
+                                                <label for="field-6" class="control-label">Zip</label>
+
+                                                <input type="text" class="form-control" id="field-6" placeholder="123456">
+                                            </div>	
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <div class="form-group no-margin">
+                                                <label for="field-7" class="control-label">Personal Info</label>
+
+                                                <textarea class="form-control autogrow" id="field-7" placeholder="Write something about yourself"></textarea>
+                                            </div>	
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-info">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tab-pane {% block mess_read %}{% endblock %}" id="message">
+                <div class="col-md-9">
+
+                    <div class="panel panel-info" data-collapsed="0">
+
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h2>All Read Messages </h2>
+                            </div>
+
+                            <div class="panel-options">
+                                <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                <a href="" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body col-md-12">
+
+                            <form role="form" class="form-horizontal form-groups-bordered">
+
+                                <table class="table table-bordered table-striped datatable col-md-12" id="table-2">
+
+                                    <thead>
+                                        <tr>
+                                            <th><h5>ID</h5></th>
+                                            <th><h5>AUTHOR</h5></th>
+                                            <th><h5>SUBJECT</h5></th>
+                                            <th><h5>CONTENT</h5></th>
+                                            <th><h5>DATE</h5></th>
+                                            <th><h5>ACTIONS</h5></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% set n = 1 %}
+                                        {% set num = 1 %}
+                                        
+                                        {% for messages in read_messages %}
+                                            <tr>
+                                                <td>{{num}}</td>
+                                                <td>{{messages.messAuthor}}</td>
+                                                <td>{{messages.messSubject}}</td>
+                                                <td>{{messages.messContent[:40]}}</td>
+                                                <td>{{messages.messDate | date('d/m/Y')}}</td>
+                                                <td>
+                                                    <a class="btn btn-info btn-sm btn-icon icon-left" href="{{ path('_read_message', {'message_group':'read' ,'id':messages.id, 'mail':'true'}) }}">
+                                                        <i class="entypo-eye"></i>
+                                                        Read again
+                                                    </a>
+                                                    {% if messages.messResponse == 'False' %}
+                                                        <a class="btn btn-orange btn-sm btn-icon icon-left" href="{{ path('_response_message', {'id':messages.id, 'gender':"read"}) }}">
+                                                            <i class="entypo-pencil"></i>
+                                                            Response
+                                                        </a>
+                                                    {% endif %}
+                                                    <a class="btn btn-red btn-sm btn-icon icon-left" href="{{ path('_pre_delete_message', {'message_group':'read' ,'id':messages.id}) }}">
+                                                        <i class="entypo-cancel"></i>
+                                                        Delete
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            
+                                            {% set n = num %}
+                                            {% set num = n+1 %}
+                                            
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tab-pane {% block adv_unread %}{% endblock %}" id="unread_comment">
+                <div class="col-md-9">
+
+                    <div class="panel panel-warning" data-collapsed="0">
+
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h2>All Unread Comments </h2>
+                            </div>
+
+                            <div class="panel-options">
+                                <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                <a href="" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body col-md-12">
+
+                            <form role="form" class="form-horizontal form-groups-bordered">
+
+                                <table class="table table-bordered table-striped datatable" id="table-2">
+
+                                    <thead>
+                                        <tr>
+                                            <th><h5>ID</h5></th>
+                                            <th><h5>ART NAME</h5></th>
+                                            <th><h5>AUTHOR</h5></th>
+                                            <th><h5>EMAIL</h5></th>
+                                            <th><h5>DATE</h5></th>
+                                            <th><h5>COMMENT</h5></th>
+                                            <th><h5>ACTIONS</h5></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% set n = 1 %}
+                                        {% set num = 1 %}
+
+                                        {% for adv in unread_advises %}
+                                            
+                                            <tr>
+                                                <td>{{num}}</td>
+                                                <td>{{adv.adviseArt.artName}}</td>
+                                                <td>{{adv.adviseAuthor}}</td>
+                                                <td>{{adv.adviseEmail}}</td>
+                                                <td>{{adv.adviseDate | date('d/m/Y')}}</td>
+                                                <td>{{adv.adviseContent}}</td>
+                                                <td>
+                                                    <a class="btn btn-info btn-sm btn-icon icon-left" href="{{ path('_read_advise', {'id':adv.id, 'title':adv.adviseArt.artName, 'advise_group':'unread', 'response':'false'}) }}">
+                                                        <i class="entypo-eye"></i>
+                                                        Read it
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {% set n = num %}
+                                            {% set num = n+1 %}
+                                            
+                                        {% endfor %}
+                                    </tbody>
+
+                                </table>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="tab-pane {% block adv_read %}{% endblock %}" id="comment">
+                <div class="col-md-9">
+
+                    <div class="panel panel-success" data-collapsed="0">
+
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h2>All Read Comments </h2>
+                            </div>
+
+                            <div class="panel-options">
+                                <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                <a href="" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="panel-body col-md-12">
+
+                            <form role="form" class="form-horizontal form-groups-bordered">
+
+                                <table class="table table-bordered table-striped datatable" id="table-2">
+
+                                    <thead>
+                                        <tr>
+                                            <th><h5>ID</h5></th>
+                                            <th><h5>ART NAME</h5></th>
+                                            <th><h5>AUTHOR</h5></th>
+                                            <th><h5>DATE</h5></th>
+                                            <th><h5>ACTIONS</h5></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% set n = 1 %}
+                                        {% set num = 1 %}
+
+                                        {% for adv in read_advises %}
+                                            
+                                            <tr>
+                                                <td>{{num}}</td>
+                                                <td>{{adv.adviseArt.artName}}</td>
+                                                <td>{{adv.adviseAuthor}}</td>
+                                                <td>{{adv.adviseDate | date('d/m/Y')}}</td>
+                                                <td>
+                                                    <a class="btn btn-info btn-sm btn-icon icon-left" href="{{ path('_read_advise', {'id':adv.id, 'artId':adv.adviseArt.id, 'advise_group':'read', 'response':'true'}) }}">
+                                                        <i class="entypo-eye"></i>
+                                                        Read again
+                                                    </a>
+                                                    {% if adv.adviseResponse == 'False' %}
+                                                        <a class="btn btn-orange btn-sm btn-icon icon-left" href="{{ path('_pre_advise', {'id':adv.id, 'artId':adv.adviseArt.id, 'gender':'read'}) }}">
+                                                            <i class="entypo-pencil"></i>
+                                                            Response
+                                                        </a>
+                                                    {% endif %}
+                                                    <a class="btn btn-red btn-sm btn-icon icon-left" href="{{ path('_pre_delete_advise', {'id':adv.id, 'artId':adv.adviseArt.id, 'gender':'read'}) }}">
+                                                        <i class="entypo-cancel"></i>
+                                                        Delete
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            {% set n = num %}
+                                            {% set num = n+1 %}
+                                            
+                                        {% endfor %}
+                                        
+                                    </tbody>
+
+                                </table>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

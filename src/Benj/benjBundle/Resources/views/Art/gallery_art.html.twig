@@ -1,0 +1,48 @@
+{% extends "benjBundle:Default:simple_default.html.twig" %}
+
+{% block container %}
+
+    <div class="page-title" style="background-image: url({{asset('bundles/benj/images/ArtBckgFin.jpg')}});">
+        <div class="over"></div>
+        <h1>My collection</h1>
+    </div>
+    <!-- /.page-title -->
+    
+    <div class="portfolio-grid">
+        <div class="isotope-filter button-group">
+            <ul>
+                <li><a class="button is-checked" data-filter="*">All</a></li>
+                <li><a class="button" data-filter=".Portrait">Portrait</a></li>
+                <li><a class="button" data-filter=".Nature">Nature</a></li>
+                <li><a class="button" data-filter=".Life">Life scene</a></li>
+                <li><a class="button" data-filter=".2011">2011</a></li>
+                <li><a class="button" data-filter=".2012">2012</a></li>
+                <li><a class="button" data-filter=".2013">2013</a></li>
+                <li><a class="button" data-filter=".2014">2014</a></li>
+                <li><a class="button" data-filter=".2015">2015</a></li>
+                <li><a class="button" data-filter=".2016">2016</a></li>
+                <li><a class="button" data-filter=".2017">2017</a></li>
+            </ul>
+        </div>
+        <ul class="isotope items light-gallery">
+            
+            {% for arts in art %}
+
+                <li class="item {{arts.ArtCategory}} {{arts.ArtYear}}">
+                    <figure class="overlay inverse"> <a href="{{path('_shown_art', {'id':arts.id})}}">
+                            <div class="text-overlay caption" id="caption2">
+                                <div class="info">
+                                    <h2 class="post-title">{{arts.ArtName}}</h2>
+                                </div>
+                            </div>
+                            <img src="{{asset('bundles/benj/images/')~arts.ArtLocation}}" alt="" /> </a> </figure>
+                </li>
+
+            {% endfor %}
+            
+        </ul>
+        <!-- /.isotope --> 
+    </div>
+    <!-- /.portfolio-grid --> 
+
+{% endblock %}

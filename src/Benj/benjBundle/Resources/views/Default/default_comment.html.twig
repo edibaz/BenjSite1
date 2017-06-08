@@ -1,0 +1,32 @@
+{% extends "benjBundle:Default:default_form.html.twig" %}
+
+{% block container %}
+
+    <form role="form" class="form-horizontal form-groups-bordered validate" action="{{path('_art_advise', {'id':shown_art.id})}}" method="POST">
+
+        <div class="row">
+            <div class="form-field">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control input-lg" name="mess_author" placeholder="Your name" autocomplete="off" data-validate="required" data-message-required="Please your name is required.">
+                </div>
+            </div>
+
+            <div class="form-field">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control input-lg" name="mess_email" placeholder="Your email" autocomplete="off" data-validate="email"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-field">
+                <div class="col-sm-12">
+                    <textarea class="form-control autogrow input-lg" name="mess_content" placeholder="Type your message here..."></textarea>
+                </div>
+            </div>
+        </div>
+        <input type="submit" class="btn" value="Send" data-error="Fix errors" data-processing="Sending..." data-success="Thank you!">
+
+    </form>
+
+{% endblock %}

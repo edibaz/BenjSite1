@@ -1,0 +1,43 @@
+{% extends "benjBundle:Advise:default_advise.html.twig" %}
+
+{% block advise_response %}
+    {% if advises.adviseIsRead == 'True' %}
+
+        <div class="panel panel-success" data-collapsed="0">
+
+            <!-- panel head -->
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h2>Response</h2>
+                </div>
+            </div>
+
+            <!-- panel body -->
+            <div class="panel-body">
+                <div class="col-lg-12">
+                    <pre><h3>{{advises.adviseResponseContent}}</h3></pre>
+                </div>
+            </div>
+        </div>
+        <footer class="main">
+            <div class="form-group">
+                <div class="col-sm-3 col-sm-offset-1">
+                    <a type="button" href="{{ path('_admin_statistics', {'group':'advise' ,'gender':tab}) }}" class="btn btn-success btn-lg btn-icon icon-left center-block">
+                        <i class="entypo-back"></i>
+                        Back to all {{tab}} advises
+                    </a>
+                </div>  
+                <div class="col-sm-3 col-sm-offset-4">
+                    <a class="btn btn-red btn-lg btn-icon icon-left" href="{{ path('_delete_advise', {'id':advises.id, 'gender':tab}) }}">
+                        <i class="entypo-cancel"></i>
+                        Delete this advise
+                    </a>
+                </div> 
+            </div> 
+        </footer>
+        <footer class="main">
+
+        </footer>
+
+    {% endif %}
+{% endblock %}

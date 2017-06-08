@@ -1,0 +1,61 @@
+{% extends "benjBundle:Default:simple_default.html.twig" %}
+
+{% block container %}
+
+    <div class="container">
+        <div class="blog row">
+            <br />
+            <div class="col-md-5 blog-content">
+                <div class="blog-posts classic-view box">
+                    <div class="post text-center center">
+                        <div class="tiles post-gallery center">
+                            <div class="items row row-offset-0 light-gallery center">
+                                <div class="row col-xs-12 col-lg-12">
+                                    <figure class="overlay"><a class="lgitem" href="{% block benj %}{% endblock %}"> <img src="{% block baz %}{% endblock %}"  alt="" /> </a></figure>
+                                    {% block admin_descriptions %}{% endblock %}
+                                </div>
+                                <!--/.item -->
+                            </div>
+                            <!--/.items --> 
+                        </div>
+                        <!--/.tiles -->
+                    </div>
+                    <!-- .post -->
+                </div>
+                <!-- /.box --> 
+            </div>
+            <!-- /.blog-content -->
+
+            <aside class="col-md-7 sidebar">
+                <div class="sidebox widget">
+                    <h4 class="widget-title text-center">{% block title %}{% endblock %}</h4>
+                    <div class="divide10"></div>
+
+                    {% block descriptions %}{% endblock %}
+                    {% block admin_advise %}{% endblock %}
+                    {% block admin_comment %}{% endblock %}
+
+                </div>
+                <!-- /.widget -->
+            </aside>
+            <!-- /column .sidebar --> 
+            
+        </div>
+        <!-- /.blog --> 
+        <hr />
+        <div class="col-md-8 col-lg-offset-2">
+
+            {% block advise %}{% endblock %}
+            <!-- /#comments -->
+
+            <hr />
+            {% block comment %}{% endblock %}            
+            <br />
+            <br />
+
+        </div>
+
+    </div>
+    <!--/.container --> 
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block container %}
+    <div class="gallery-env">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    <article class="album">
+                        <header>      
+
+                            <img src="{{asset('bundles/benj/images/')~art_affiche.artFullLocation}}" />  
+                            <br />
+
+                        </header>
+                    </article>
+                </div>
+            </div>
+            <div class="col-md-8">
+                {% block art_informations %}{% endblock %}                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

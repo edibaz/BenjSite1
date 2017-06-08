@@ -1,0 +1,84 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block container %}
+    <div class="gallery-env">
+        <div class="row">
+            <div class="col-md-4">
+                <article class="album">
+
+                    <header>      
+                        <div class="col-md-10 col-md-offset-1">
+                            <img src="{{asset('bundles/benj/images/')~advises.adviseArtLocation}}" />  
+                            <br />
+                        </div>
+                    </header>
+
+                    <section class="album-info">
+                        <h1 class="text-center"><a>{{shown_art.artName | upper}}</a></h1>
+                        <p><h3>{{shown_art.artCategory}}</h3></p>
+                        <p><h3>{{shown_art.artYear}}</h3></p>
+                        <p><h3>{{shown_art.artComment}}</h3></p>
+                        <p><h3>{{shown_art.artDimensions}}</h3></p>
+                    </section>
+
+                </article>
+            </div>
+            <div class="col-md-7">
+                <div class="panel panel-info" data-collapsed="0">
+
+                    <!-- panel head -->
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h2>Advise on {{advises.adviseDate | date('d/m/Y')}}</h2>
+                        </div>
+                    </div>
+
+                    <!-- panel body -->
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- API Functions -->
+                                <table class="table table-bordered">
+                                    <tbody>
+
+                                        <tr>
+                                            <td>
+                                                <h4>Author</h4>
+                                            </td>
+                                            <td>
+                                                <pre><h3>{{advises.adviseAuthor | upper}}</h3></pre>                                         
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>Email</h4>
+                                            </td>
+                                            <td>
+                                                <pre><h3>{{advises.adviseEmail}}</h3></pre>                                         
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h4>Content</h4>
+                                            </td>
+                                            <td>
+                                                <pre><h3>{{advises.adviseContent}}</h3></pre>                                         
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                                
+                                {% block response_button %}{% endblock %}
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div> 
+                {% block advise_response %}{% endblock %} 
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

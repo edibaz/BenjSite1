@@ -1,0 +1,41 @@
+{% extends "benjBundle:Default:simple_default.html.twig" %}
+
+{% block container %}
+
+    <div class="page-title" style="background-image: url({{asset('bundles/benj/images/Contact2.jpg')}});">
+        <div class="over"></div>
+        <h1>Contact Me</h1>
+    </div>
+    <!-- /.page-title -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-offset-1">
+                <div class="box">
+                    {% if notification == 'True' %}
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Well done!</strong> Your message is successfully sent to Benj KINENGA. 
+                        </div>
+                    {% endif %}
+
+                    <h3 class="sans text-center">Get in Touch</h3>
+                    <h3>Thank you for your message.</h3>
+                    </br>
+                    <div class="divide10"></div>
+                    <div class="form-container">
+
+                        {% include "benjBundle:Default:default_contact.html.twig" %}
+
+                    </div>
+                    <!--/.form-container --> 
+                </div>
+                <!-- /.box --> 
+            </div>
+            <!-- /column -->
+        </div>
+        <!-- /.row --> 
+    </div>
+    <!--/.container --> 
+
+{% endblock %}

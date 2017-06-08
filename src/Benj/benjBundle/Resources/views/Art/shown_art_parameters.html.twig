@@ -1,0 +1,119 @@
+{% extends "benjBundle:Art:shown_art.html.twig" %}
+
+{% block benj %}
+    {{asset('bundles/benj/images/')~shown_art.artFullLocation}}
+{% endblock %}
+
+{% block baz %}
+    {{asset('bundles/benj/images/')~shown_art.artFullLocation}}
+{% endblock %}
+
+{% block title %}
+    Descriptions
+{% endblock %}
+
+{% block descriptions %}
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <td>
+                    <h3>Title</h3>
+                </td>
+                <td>
+                    <pre><h4>{{shown_art.artName}}        </h4></pre>                                         
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Category</h3>
+                </td>
+                <td>
+                    <pre><h4>{{shown_art.artCategory}}                                   </h4></pre>                                         
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Year of production</h3>
+                </td>
+                <td>
+                    <pre><h4>{{shown_art.artYear}}</h4></pre>                                         
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Style</h3>
+                </td>
+                <td>
+                    <pre><h4>{{shown_art.artComment}}</h4></pre>                                         
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Dimensions</h3>
+                </td>
+                <td>
+                    <pre><h4>{{shown_art.artDimensions}}</h4></pre>                                         
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block advise %}
+
+    <div id="comments" class="text-left">
+        <h5 class="section-title sans">{{advises | length}} Comments</h5>
+
+        <ol id="singlecomments" class="commentlist">
+
+            {% for adv in advises %}
+
+                <li>
+                    <div class="message">
+                        <div class="message-inner">
+                            <div class="info">
+                                <h6 class="sans"><a href="#">{{adv.adviseAuthor}}</a></h6>
+                                <div class="meta"> <span class="date">{{adv.adviseDate | date('d/m/Y')}}</span> </div>
+                            </div>
+                            <p>{{adv.adviseContent}}</p>
+                        </div>
+                    </div>
+                    {% if adv.adviseResponse == 'True' %}
+
+                        <ul class="children">
+                            <li class="bypostauthor">
+                                <div class="message">
+                                    <div class="user"><img alt="" src="style/images/art/u3.jpg" class="avatar" /></div>
+                                    <div class="message-inner bypostauthor">
+                                        <div class="info">
+                                            <h6 class="sans"><a href="#">Benj Kinenga</a></h6>
+                                            <div class="meta"> <span class="date">{{adv.adviseDate | date('d/m/Y')}}</span> </div>
+                                        </div>
+                                        <p>{{adv.adviseResponseContent}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                    {% endif %}
+
+                </li>
+
+            {% endfor %}
+
+        </ol>
+    </div>
+{% endblock %}
+
+{% block comment %}
+    <div class="comment-form-wrapper text-left">
+        <h5 class="section-title sans">Would you like to share your thoughts?</h5>
+        <p>Your email is neither required nor published but required for particular communication with you.</p>
+
+        {% include "benjBundle:Default:default_comment.html.twig" %}
+
+    </div>
+    <!-- /.comment-form-wrapper --> 
+{% endblock %}

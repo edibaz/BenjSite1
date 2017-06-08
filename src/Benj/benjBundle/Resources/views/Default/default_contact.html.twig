@@ -1,0 +1,52 @@
+{% extends "benjBundle:Default:default_form.html.twig" %}
+
+{% block container %}
+
+    <form role="form" class="form-horizontal form-groups-bordered validate" action="{{path('benj_contact')}}" method="POST">
+        <div class="row">
+            <div class="form-field">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control input-lg" name="mess_author" placeholder="Your name" autocomplete="off" data-validate="required" data-message-required="** Please your name is required. **">
+                </div>
+            </div>
+
+            <div class="form-field">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control input-lg" name="mess_phone" data-mask="9999999999999" placeholder="Your phone" autocomplete="off"/>
+                </div>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="form-field">
+                <div class="col-sm-6">
+                    <input type="text" class="form-control input-lg" name="mess_email" placeholder="Your email adress" autocomplete="off" data-validate="email" data-message-required="** Please your email is required. **">
+                </div>
+            </div>
+
+            <div class="form-field">
+                <div class="col-sm-6">
+
+                    <select class="selectboxit input-lg" name="mess_subject" data-text="Subject" data-validate="required">
+                        <option value="Hi">Say Hi</option>
+                        <option value="Contact">Contact</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-field">
+                <div class="col-sm-12">
+                    <textarea class="form-control autogrow input-lg" name="mess_content" placeholder="Type your message here..." data-validate="required" data-message-required="** Please your message is required. **"></textarea>
+                </div>
+            </div>
+            
+        </div>
+        <input type="submit" class="btn" value="Send" data-error="Fix errors" data-processing="Sending..." data-success="Thank you!">
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "benjBundle:Default:simple_default.html.twig" %}
+
+{% block container %}
+
+    <div class="page-title" style="background-image: url({{asset('bundles/benj/images/AboutBG.jpg')}});">
+        <div class="over"></div>
+        <h1>About Me</h1>
+    </div>
+    <!-- /.page-title -->
+
+    <div class="container">
+        <div class="box">
+            <div class="row">
+                <div class="col-md-5 rp20 bm20">
+                    <figure><img src="{{asset('bundles/benj/images/AboutVrai.jpg')}}" alt="" /></figure>
+                </div>
+                <!-- /column -->
+                <div class="col-md-7">
+                    <h3 class="section-title sans">Who is Behind?</h3>
+                    <p>Born in Kinshasa in Democratic Republic of Congo on the 7th of August 1989, Benj KINENGA MUSHILA expressed his artistic talent, which his parents did not fail to notice, as early as before starting primary school. He succeeded brilliantly at Fine Arts studies in secondary school, studies that he eventually carried forward at tertiary level at the ‘Academie des Beaux-Arts of Kinshasa’ where he obtained his Bachelor in 2013. The successive two years, he taught at this same prestigious academy in the Department of Painting. He is now pursuing his painting studies at Master’s Level at the Nanjing University of the Arts in China. Outside his artistic studies, Benj KINENGA has started a successful career trend. Whilst still being a student, he was earmarked as being among the best Congolese artists. He participated in numerous art expositions in his natal country, amongst which are these popular expositions: ‘Courant d’Art’ at the Trust Merchant Bank, ‘Issue de la meme ecole’ in YANGO Biennale, ‘Art for Peace’ organized by the United Nations in R.D. Congo and ‘Mouv a Kin’. His prizes won during different painting competition cannot be cast aside:  First prize for the “Couleurs de la Paix” Competition in 2010 and the first prize of the competition entitled ‘Separation et Esprit Communautaire’ organized by the German Embassy in R.D. Congo in 2011. </p>                    
+                    <p>We cannot conclude without giving you an in-sight of Benj’s artistic imagination and for this we invite you to travel into the deeper senses of the artist through his own words:</p>
+                    <blockquote>
+                        <p>The observation of my surroundings, the intricate movements pertaining to nature and architectural infrastructure form part of my works.</p>
+                    </blockquote>
+                </div>
+                <!-- /column --> 
+
+            </div>
+            <!-- /.row -->     
+            <hr />
+            <h4 class="sans text-center">Let's Work Together</h4>
+
+            <div class="text-center">
+                <h3 class="text-center"><p>Would you please give me your opinion on my work as your comment.<br />Reach me please for more informations and for any commands.</p></h3>
+                <a href="{{path('benj_contact')}}" class="btn"><i class="icon-comment-empty rp7"></i>Contact Me</a> 
+            </div>
+
+        </div>
+        <!-- /.box --> 
+    </div>
+
+{% endblock %}

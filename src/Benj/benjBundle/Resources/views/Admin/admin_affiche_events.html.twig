@@ -1,0 +1,72 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block container %}
+
+    <div class="col-md-8 col-lg-offset-2">
+
+        <div class="panel panel-info" data-collapsed="0">
+
+            <!-- panel head -->
+            <div class="panel-heading">
+                <div class="panel-title"><h2>Shown Event</h2></div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th><h5>Function</h5></th>
+                                    <th><h5>Values</h5></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <h4>Event Title</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{read_event.evTitle | upper}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Event Date</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{read_event.evDate}} at {{read_event.evMoment}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Event Place</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{read_event.evPlace}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Event Content</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{read_event.evContent}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-lg-3">
+                            <a type="button" href="{{path('_admin_manage_list_events')}}" class="btn btn-success btn-lg btn-icon icon-left center-block"><i class="entypo-back"></i>Back to events list</a>
+                        </div>   
+                        <div class="col-lg-offset-10">
+                            <a type="button" href="{{path('_admin_edit_event', {'id':read_event.id})}}" class="btn btn-blue btn-lg btn-icon icon-left center-block col-lg-offset-3"><i class="entypo-pencil"></i>Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

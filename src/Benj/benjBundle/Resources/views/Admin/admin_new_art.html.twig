@@ -1,0 +1,114 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block menu_statistics %}{% endblock %}
+{% block menu_new_art %}class = "active"{% endblock %}
+{% block menu_list_arts %}{% endblock %}
+{% block menu_new_event %}{% endblock %}
+{% block menu_list_events %}{% endblock %}
+
+{% block container %}
+
+    <div class="row">
+        <div class="col-md-8 col-lg-offset-2">
+
+            <div class="panel panel-info" data-collapsed="0">
+
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h2>Insert values of new art</h2>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <form role="form" class="form-horizontal form-groups-bordered" method="POST" action="{{path('_admin_manage_new_art')}}">
+
+                        <div class="form-group">
+                            <label for="field-1" class="col-sm-2 control-label">Art Name</label>
+
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-lg" name="art_name" placeholder="Type Art Name Here" autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Production Year</label>
+
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-lg" name="art_year" data-mask="9999" placeholder="Type Year Here" autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" >Category</label>
+
+                            <div class="col-sm-7">
+
+                                <select class="selectboxit input-lg" name="art_category" data-native="true" data-text="Select Category Of Art">
+                                    <option value="Portrait">Portrait</option>
+                                    <option value="Life Scene">Life Scene</option>
+                                    <option value="Nature">Nature</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Dimensions</label>
+
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-lg" name="art_dimensions" placeholder="Type Dimensions Here" autocomplete="off"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Artsmall Location</label>
+
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-lg" name="art_small_location" placeholder="Type Small Location Here" autocomplete="off"/>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Artfull Location</label>
+
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-lg" name="art_full_location" placeholder="Type Full Location Here" autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="field-ta" class="col-sm-2 control-label">Art Style</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control autogrow input-lg" name="art_comment" placeholder="Type Your Comment Here" autocomplete="off"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <button type="button" class="btn btn-red btn-lg btn-icon icon-left">
+                                    <i class="entypo-cancel"></i>
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="col-sm-3 col-sm-offset-5">
+                                <button type="submit"  class="btn btn-success btn-lg btn-icon icon-left">
+                                    <i class="entypo-check"></i>
+                                    Insert
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block menu_statistics %}{% endblock %}
+{% block menu_new_art %}{% endblock %}
+{% block menu_list_arts %}{% endblock %}
+{% block menu_new_event %}class = "active"{% endblock %}
+{% block menu_list_events %}{% endblock %}
+
+
+{% block container %}
+
+    <div class="row">
+        <div class="col-md-8 col-lg-offset-2">
+
+            <div class="panel panel-info" data-collapsed="0">
+
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h2>Insert informations of new event</h2>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <form role="form" class="form-horizontal form-groups-bordered" method="POST" action="{{path('_admin_manage_new_event')}}">
+
+                        <div class="form-group">
+                            <label for="field-1" class="col-sm-2 control-label">Event Date</label>
+
+                            <div class="col-sm-7">
+                                <div class="date-and-time">
+                                    <input type="text" name="event_date" class="form-control datepicker" data-format="D, dd MM yyyy">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <a href="#"><i class="entypo-clock"></i></a>
+                                        </div><input type="text" name="event_heure" class="form-control timepicker" data-template="dropdown" data-show-seconds="true" data-default-time="11:25 AM" data-show-meridian="true" data-minute-step="5" data-second-step="5" />                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="field-1" class="col-sm-2 control-label">Event Title</label>
+
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-lg" name="event_title" placeholder="Type Event Title Here" autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Event Place</label>
+
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control input-lg" name="event_place" placeholder="Type Event Place Here" autocomplete="off"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="field-ta" class="col-sm-2 control-label">Event Content</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control autogrow input-lg" name="event_content" placeholder="Type Event Content Here" autocomplete="off"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-sm-3 col-sm-offset-1">
+                                <button type="button" class="btn btn-red btn-lg btn-icon icon-left">
+                                    <i class="entypo-cancel"></i>
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="col-sm-3 col-sm-offset-5">
+                                <button type="submit"  class="btn btn-success btn-lg btn-icon icon-left">
+                                    <i class="entypo-check"></i>
+                                    Insert
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

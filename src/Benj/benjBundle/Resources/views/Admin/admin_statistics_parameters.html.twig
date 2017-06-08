@@ -1,0 +1,21 @@
+{% extends "benjBundle:Admin:admin_statistics.html.twig" %}
+
+{% block mess_unread %}
+    {{block_unread_messages}}
+    {% set block_unread_messages = '' %}
+{% endblock %}
+
+{% block mess_read %}
+    {{block_read_messages}}
+    {% set block_read_messages = '' %}
+{% endblock %}
+
+{% block adv_unread %}
+    {{block_unread_advises}}
+    {% set block_unread_advises = '' %}
+{% endblock %}
+
+{% block adv_read %}
+    {{block_read_advises}}
+    {% set block_read_advises = '' %}
+{% endblock %}

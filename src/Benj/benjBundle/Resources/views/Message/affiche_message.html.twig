@@ -1,0 +1,97 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block container %}
+
+    <div class="col-md-8 col-lg-offset-2">
+
+        <div class="panel panel-info" data-collapsed="0">
+
+            <!-- panel head -->
+            <div class="panel-heading">
+                <div class="panel-title"><h2>Message</h2></div>
+            </div>
+
+            <!-- panel body -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- API Functions -->
+                        <table class="table table-bordered">
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <h4>Author</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messAuthor | upper}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Subject</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messSubject}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Email</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messEmail}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Date</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messDate | date('d/m/Y')}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Phone</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messPhone}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Content</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messContent}}</h3></pre>                                         
+                                    </td>
+                                </tr>                                
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% block message_response %}{% endblock %}
+    <footer class="main">
+        <div class="form-group">
+            <div class="col-sm-3 col-sm-offset-1">
+                <a href="{{ path('_admin_statistics', {'group':'message', 'gender':tab}) }}" class="btn btn-info btn-lg btn-icon icon-left center-block">
+                    <i class="entypo-back"></i>
+                    Back to all {{tab}} messages
+                </a>
+            </div>
+
+            {% block message_button %}{% endblock %}
+
+        </div>
+    </footer>
+
+<br>
+</div>
+
+{% endblock %}

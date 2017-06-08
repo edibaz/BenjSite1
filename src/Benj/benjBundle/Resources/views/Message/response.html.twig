@@ -1,0 +1,126 @@
+{% extends "benjBundle:Admin:admin_default.html.twig" %}
+
+{% block container %}
+
+    <div class="col-md-5">
+
+        <div class="panel panel-info" data-collapsed="0">
+
+            <!-- panel head -->
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h2>Message</h2>
+                </div>
+            </div>
+
+            <!-- panel body -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <!-- API Functions -->
+                        <table class="table table-bordered">
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <h4>Author</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messAuthor}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Subject</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messSubject}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Date</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messDate | date('d/m/Y')}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h4>Content</h4>
+                                    </td>
+                                    <td>
+                                        <pre><h3>{{message.messContent}}</h3></pre>                                         
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="col-md-7">
+
+        <div class="panel panel-danger" data-collapsed="0">
+
+            <!-- panel head -->
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h2>Response</h2>
+                </div>
+            </div>
+
+            <!-- panel body -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>To :</h4> <h2>{{message.messEmail}}</h2>
+
+                        <form role="form" class="form-horizontal form-groups-bordered validate" method="POST" action="{{ path('_mail_message', {'id':message.id, 'gender':tab}) }}">
+
+                            <div class="form-group">
+                                <label for="field-1" class="col-sm-2 control-label"><h4>Subject</h4></label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" data-validate="required" data-message-required="Please subject is required." class="form-control input-lg" name="mail_subject" placeholder="Type The Subject Here" autocomplete="off">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="field-ta" class="col-sm-2 control-label"><h4>Content</h4></label>
+
+                                <div class="col-sm-10">
+                                    <textarea class="form-control autogrow input-lg" data-validate="required" data-message-required="Please content is required." name="mail_content" placeholder="Type Your Mail Here" autocomplete="off"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                
+                                <div class="col-md-1">
+                                    <a href="{{ path('_admin_statistics', {'group':'message', 'gender':tab}) }}" class="btn btn-info btn-lg btn-icon icon-left center-block">
+                                        <i class="entypo-back"></i>
+                                        Back to all {{tab}} messages
+                                    </a>
+                                </div>
+                                <div class="col-md-offset-9">
+                                    <button type="submit" class="btn btn-success btn-lg btn-icon icon-left center-block col-lg-offset-3" data-error="Fix errors">
+                                        <i class="entypo-check"></i>
+                                        Send response
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

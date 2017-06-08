@@ -1,0 +1,202 @@
+
+                ## Default ##
+
+benj_homepage:
+    path:     /
+    defaults: { _controller: benjBundle:Default:Home}
+    
+benj_philosophy:
+    path:     /philosophy
+    defaults: { _controller: benjBundle:Default:Philosophy}
+
+benj_contact:
+    path:     /contact
+    defaults: { _controller: benjBundle:Message:NewMessage}
+    
+benj_about:
+    path:     /about
+    defaults: { _controller: benjBundle:Default:About}
+    
+benj_events:
+    path:     /events
+    defaults: { _controller: benjBundle:Default:Events}
+    
+_admin_statistics:
+    path:     /benj
+    defaults: { _controller: benjBundle:Admin:AdminStatisticsParameters }
+ 
+                ## Event ##
+
+_admin_manage_new_event:
+    path:     /benj/manageNewEvent
+    defaults: { _controller: benjBundle:Events:AdminManageNewEvent }
+    
+_admin_manage_list_events:
+    path:     /benj/ListEvents
+    defaults: { _controller: benjBundle:Events:AdminListEvents }
+    
+_admin_manage_read_event:
+    path:     /benj/readEvent/{id}
+    defaults: { _controller: benjBundle:Events:AdminReadEvent }
+    requirements:
+        id: \d*
+        
+_admin_edit_event:
+    path:     /benj/editEvent/{id}
+    defaults: { _controller: benjBundle:Events:AdminEditEvent }
+    requirements:
+        id: \d*
+        
+_admin_save_event:
+    path:     /benj/saveEvent/{id}
+    defaults: { _controller: benjBundle:Events:AdminSaveEvent }
+    requirements:
+        id: \d*
+
+_admin_pre_delete_event:
+    path:     /benj/deleteEvent/{id}
+    defaults: { _controller: benjBundle:Events:AdminPreDeleteEvent }
+    requirements:
+        id: \d*
+        
+_admin_delete_event:
+    path:     /benj/deletedEvent/{id}
+    defaults: { _controller: benjBundle:Events:AdminDeleteEvent }
+    requirements:
+        id: \d*
+
+                
+                ## Art ##
+
+_gallery_art:
+    path:     /gallery
+    defaults: { _controller: benjBundle:Art:GalleryArt}
+    
+_shown_art:
+    path:     /show/{id}
+    defaults: { _controller: benjBundle:Art:ShownArt}
+    requirements:
+        id: \d*
+
+_add_art:
+    path:     /benj/addArt
+    defaults: { _controller: benjBundle:Art:AddArt}
+
+delete_art:
+    path:     /benj/deleteArt
+    defaults: { _controller: benjBundle:Art:DeleteArt }
+
+_update_art:
+    path:     /benj/updateArt
+    defaults: { _controller: benjBundle:Art:UpdateArt }
+
+_list_art:
+    path:     /benj/listArt
+    defaults: { _controller: benjBundle:Art:ListArt }
+    
+_gallery_art:
+    path:     /galleryArt
+    defaults: { _controller: benjBundle:Art:GalleryArt }
+    
+_admin_manage_new_art:
+    path:     /benj/manageNewArt
+    defaults: { _controller: benjBundle:Admin:AdminManageNewArt }
+    
+_admin_manage_art:
+    path:     /benj/afficheArt/{id}
+    defaults: { _controller: benjBundle:Admin:AdminAfficheArt }
+    requirements:
+        id: \d*
+        
+_admin_modify_art:
+    path:     /benj/modifyArt/{id}
+    defaults: { _controller: benjBundle:Admin:AdminModifyArt }
+    requirements:
+        id: \d*
+        
+_admin_save_art:
+    path:     /benj/saveArt/{id}
+    defaults: { _controller: benjBundle:Admin:AdminSaveArt }
+    requirements:
+        id: \d*
+        
+_admin_manage_list_arts:
+    path:     /benj/manageListArts
+    defaults: { _controller: benjBundle:Admin:AdminManageListArts }
+    
+_admin_pre_delete_art:
+    path:     /benj/deleteArt/{id}
+    defaults: { _controller: benjBundle:Admin:PreDeleteArt }
+    requirements:
+        id: \d*
+        
+_admin_delete_art:
+    path:     /benj/deletedArt/{id}
+    defaults: { _controller: benjBundle:Admin:DeletedArt }
+    requirements:
+        id: \d*
+    
+                ## Advise ##
+
+_art_advise:
+    path:     /newAdvise
+    defaults: { _controller: benjBundle:Advise:NewAdvise }
+    
+_pre_advise:
+    path:     /benj/responseAdvise/{id}
+    defaults: { _controller: benjBundle:Advise:PreAdvise }
+    
+_response_advise:
+    path:     /benj/responsedAdvise
+    defaults: { _controller: benjBundle:Advise:ResponseAdvise }
+    
+_read_advise:
+    path:     /benj/readAdvise/{id}
+    defaults: { _controller: benjBundle:Advise:ReadAdvise }
+    
+_delete_advise:
+    path:     /benj/deletedAdvise/{id}
+    defaults: { _controller: benjBundle:Advise:DeleteAdvise }
+    
+_new_advise:
+    path:     /newAdvise
+    defaults: { _controller: benjBundle:Advise:NewAdvise }
+
+_pre_delete_advise:
+    path:     /benj/deleteAdvise/{id}
+    defaults: { _controller: benjBundle:Advise:PreDeleteAdvise }
+
+                    ## Message ##
+
+_new_message:
+    path:     /newMessage
+    defaults: { _controller: benjBundle:Message:NewMessage }
+
+_list_message:
+    path:     /benj/listMessage
+    defaults: { _controller: benjBundle:Message:ListMessage }
+    
+_read_message:
+    path:     /benj/readMessage/{message_group}-{id}
+    defaults: { _controller: benjBundle:Message:ReadMessage }
+    requirements:
+        id: \d*
+        
+_pre_delete_message:
+    path:     /benj/deleteMessage/{message_group}-{id}
+    defaults: { _controller: benjBundle:Message:PreDeleteMessage }
+    requirements:
+        id: \d*
+        
+_delete_message:
+    path:     /benj/deletedMessage/{id}
+    defaults: { _controller: benjBundle:Message:DeleteMessage }
+
+_response_message:
+    path:     /benj/response/{id}
+    defaults: { _controller: benjBundle:Message:ResponseMessage }
+    
+_mail_message:
+    path:     /benj/mail/{id}
+    defaults: { _controller: benjBundle:Message:MailMessage }
+    prefix:   /

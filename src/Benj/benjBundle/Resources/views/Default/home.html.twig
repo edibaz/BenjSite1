@@ -1,0 +1,108 @@
+{% extends "benjBundle:Default:simple_default.html.twig" %}
+
+{% block container %}
+
+    <div class="rev_slider_wrapper">
+        <div id="slider1" class="rev_slider" data-version="5.0">
+            <ul>
+                <li data-transition="parallaxtoabove" data-fstransition="fade"> <img src="{{asset('bundles/benj/images/slide1.jpg')}}" alt=""> </li>
+                <li data-transition="parallaxtoleft" data-fstransition="fade"> <img src="{{asset('bundles/benj/images/slide2.jpg')}}" alt=""> </li>
+                <li data-transition="parallaxtoright"> <img src="{{asset('bundles/benj/images/slide3.jpg')}}" alt=""> </li>
+            </ul>
+            <div class="tp-static-layers">
+                <div class="tp-caption tp-static-layer display text-center text-overlay" 
+                     data-x="center" 
+                     data-y="center"  
+                     data-voffset="-30" 
+                     data-fontsize="['70','50','50','40']"
+                     data-lineheight="['50','50','50','40']"
+                     data-start="500" 
+                     data-splitin="none" 
+                     data-splitout="none" 
+                     data-responsive="on"
+                     data-responsive_offset="on" 
+                     data-startslide="0" 
+                     data-endslide="3" 
+                     style="z-index: 5;">Hi! I'm Benj KINENGA MUSHILA</div>
+                <div class="tp-caption tp-static-layer sans text-center" 
+                     data-x="center" 
+                     data-y="center"  
+                     data-voffset="30" 
+                     data-fontsize="['18','18','18','18']"
+                     data-lineheight="['18','18','18','18']"
+                     data-start="500" 
+                     data-splitin="none" 
+                     data-splitout="none" 
+                     data-responsive="on"
+                     data-responsive_offset="on" 
+                     data-startslide="0" 
+                     data-endslide="3" 
+                     style="z-index: 6;">Welcome to my website</div>
+            </div>
+            <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+    </div>
+    <!-- /.rev_slider -->
+
+    <div class="container inner text-center">
+        <p class="lead text-center bm0">I, Benj KINENGA MUSHILA, a painter artist from Congo (DRC), living in China.</p>
+        <p class="lead text-center bm0">Here you will be able to find my latest and favorite works.</p>
+        <p class="lead text-center bm10">I hope that you will be happy. </p>
+        <hr />
+        <h2 class="sans text-center">About gallery</h2>
+        <a href="{{path('_gallery_art')}}" class="btn"><i class="icon-monitor rp7"></i>My collection</a> 
+        <h2 class="text-center"><p>I'm working on 3 themes that are portrait, nature and life scene.<br />Here are one work of each theme.</p></h2>       
+    </div>
+    <!-- /.container -->
+
+    <div class="portfolio-grid">
+        <ul class="isotope items">
+            <li class="item">
+                <figure class="overlay"> <a>
+                        <div class="text-overlay caption">
+                            <div class="info">
+                                <h2 class="post-title">Portrait</h2>
+                                <div class="meta"> <span class="count">{{portrait | length}} Works</span> </div>
+                            </div>
+                        </div>
+                        <img src="{{asset('bundles/benj/images/Portrait.jpg')}}" alt="" /> </a> 
+                </figure>
+            </li>
+            <li class="item">
+                <figure class="overlay"> <a>
+                        <div class="text-overlay caption">
+                            <div class="info">
+                                <h2 class="post-title">Life scene</h2>
+                                <div class="meta"> <span class="count">{{life | length}} Works</span> </div>
+                            </div>
+                        </div>
+                        <img src="{{asset('bundles/benj/images/Life.jpg')}}" alt="" /> </a> 
+                </figure>
+            </li>
+            <li class="item">
+                <figure class="overlay"> <a>
+                        <div class="text-overlay caption">
+                            <div class="info">
+                                <h2 class="post-title">Nature</h2>
+                                <div class="meta"> <span class="count">{{nature | length}} Works</span> </div>
+                            </div>
+                        </div>
+                        <img src="{{asset('bundles/benj/images/Nature.jpg')}}" alt="" /> </a> 
+                </figure>
+            </li>
+        </ul>
+        <!-- /.isotope --> 
+    </div>
+    <!-- /.portfolio-grid -->
+
+    <div class="container inner">
+        <h2 class="sans text-center">Let's Work Together</h2>
+        <div class="text-center">
+            <h2 class="text-center"><p>Would you please give me your opinion on my work as your comment.<br />Reach me please for more informations and for any commands.</p></h2>
+            <a href="{{path('benj_contact')}}" class="btn"><i class="icon-comment-empty rp7"></i>Contact Me</a> 
+        </div>
+        <!-- /.thin2 --> 
+    </div>
+    <!-- /.container --> 
+
+{% endblock %}
